@@ -64,7 +64,7 @@
             margin: 0;
         }
 
-        /* --- HERO (tight bottom margin, centered on mobile) --- */
+        /* --- HERO (centered, text size slightly reduced) --- */
         .hero {
             min-height: 90vh;               
             display: flex;
@@ -89,22 +89,21 @@
             /* changed to Noto Serif Black (weight 900) */
             font-family: 'Noto Serif', serif;
             font-weight: 900;
-            font-size: clamp(7rem, 24vw, 18rem); /* increased size */
+            font-size: clamp(6rem, 20vw, 14rem); /* slightly reduced from 18rem max */
             text-transform: uppercase;
             color: #1e1e1e;
             letter-spacing: -4px;
             margin: 0;
             line-height: 0.8;
-            font-style: normal; /* explicitly normal weight 900 black */
+            font-style: normal;
         }
 
         .hero-sundays-under {
             font-family: 'Pinyon Script', cursive;
             font-weight: 400;
-            font-size: clamp(4rem, 16vw, 10rem);
+            font-size: clamp(3.5rem, 14vw, 8rem); /* slightly reduced from 10rem max */
             color: #1e1e1e;
-            /* added positive top margin to push it down a bit */
-            margin: 0.15em 0 0 0;            /* increased from -0.3em to +0.15em */
+            margin: 0.15em 0 0 0;
             line-height: 0.8;
         }
 
@@ -152,8 +151,6 @@
             height: auto;
             position: relative;
         }
-
-        /* NO PLACEHOLDER AFTER */
 
         .featured-text {
             background: rgba(242, 240, 233, 0.85);
@@ -309,7 +306,7 @@
             opacity: 0.4;
         }
 
-        /* --- MOBILE FIXES: hero fully centered, sundays pushed down further if needed --- */
+        /* --- MOBILE FIXES: hero fully centered, text sizes adjusted for reduction --- */
         @media (max-width: 600px) {
             .hero {
                 min-height: 70vh;              /* ensure vertical centering room */
@@ -319,12 +316,11 @@
             }
 
             .hero-random {
-                font-size: clamp(6rem, 20vw, 12rem); /* adjusted for mobile bigger */
+                font-size: clamp(5rem, 18vw, 10rem); /* adjusted down to match reduction */
             }
             .hero-sundays-under {
-                font-size: clamp(3.5rem, 14vw, 6rem);
-                /* a little extra downward shift on mobile for better balance */
-                margin-top: 0.2em;               /* slightly more than desktop (0.15) */
+                font-size: clamp(3rem, 12vw, 5.5rem); /* slightly reduced */
+                margin-top: 0.2em;               
             }
             .hero-tagline {
                 margin-top: 16px;              
@@ -333,7 +329,6 @@
                 letter-spacing: 4px;
             }
 
-            /* featured section pulled up even more on mobile */
             .featured-section {
                 margin-top: -30px;            /* negative margin to close gap */
             }
@@ -381,10 +376,10 @@
                 padding: 10px 0;
             }
             .hero-random {
-                font-size: clamp(5rem, 18vw, 10rem);
+                font-size: clamp(4.5rem, 16vw, 8rem);
             }
             .hero-sundays-under {
-                font-size: clamp(3rem, 12vw, 5rem);
+                font-size: clamp(2.5rem, 10vw, 4rem);
             }
         }
     </style>
@@ -392,7 +387,7 @@
 <body>
     <div class="container">
 
-        <!-- HERO - now with sundays pushed down slightly, and mobile fully centered -->
+        <!-- HERO - now centered, with slightly smaller text sizes -->
         <section class="hero">
             <div class="hero-lockup">
                 <span class="hero-random">RANDOM</span>
@@ -461,7 +456,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('RANDOM SUNDAYS — "Sundays" shifted down, hero centered on mobile.');
+            console.log('RANDOM SUNDAYS — hero centered, text size reduced.');
         });
     </script>
 </body>
