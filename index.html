@@ -59,6 +59,26 @@
             font-size: 0.8rem;
         }
 
+        /* --- TICKET BUTTON SPECIFIC: Noto Serif (regular weight for readability) --- */
+        .btn-ticket {
+            font-family: 'Noto Serif', serif !important;
+            font-weight: 400;          /* normal weight for readability, not black */
+            font-style: normal;
+            letter-spacing: 2px;        /* slightly adjusted for serif */
+        }
+
+        /* --- FEATURED EVENT HEADER: RANDOM SUNDAYS to NOTO SERIF (black weight) --- */
+        .featured-event-title {
+            font-family: 'Noto Serif', serif !important;
+            font-weight: 900;            /* matching hero weight for consistency */
+            font-style: normal;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 2.8rem;           /* keep original size */
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
         /* remove default large section margin - we control spacing manually */
         section {
             margin: 0;
@@ -162,6 +182,7 @@
             z-index: 2;
         }
 
+        /* original h2 rule overridden by class, but keep as fallback */
         .featured-text h2 {
             font-family: 'Big Shoulders Display', cursive;
             font-size: 2.8rem;
@@ -350,6 +371,10 @@
             .featured-text h2 {
                 font-size: 2rem;
             }
+            /* ensure mobile title uses Noto Serif */
+            .featured-event-title {
+                font-size: 2rem !important;    /* match mobile h2 override */
+            }
 
             .calendar-item {
                 flex-direction: column;
@@ -401,11 +426,12 @@
             <div class="featured-grid">
                 <div class="featured-image" id="featuredImage">
                     <div class="featured-text">
-                        <h2>RANDOM SUNDAYS</h2>
+                        <!-- RANDOM SUNDAYS heading now uses Noto Serif via dedicated class -->
+                        <h2 class="featured-event-title">RANDOM SUNDAYS</h2>
                         <p class="event-detail">15 MARCH · 12:00 – 00:00</p>
                         <p class="event-detail" style="font-weight:400; text-transform:none; letter-spacing:0.5px;">2 Pierre Road, Ruimsig</p>
-                        <!-- Updated ticket link -->
-                        <a href="https://www.webtickets.co.za/v2/event.aspx?itemid=1587254857" target="_blank" class="btn-outline btn--small">get tickets</a>
+                        <!-- Updated ticket link with Noto Serif font (class btn-ticket) -->
+                        <a href="https://www.webtickets.co.za/v2/event.aspx?itemid=1587254857" target="_blank" class="btn-outline btn--small btn-ticket">get tickets</a>
                     </div>
                 </div>
             </div>
@@ -456,7 +482,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('RANDOM SUNDAYS — hero centered, text size reduced.');
+            console.log('RANDOM SUNDAYS — featured heading now uses Noto Serif.');
         });
     </script>
 </body>
