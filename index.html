@@ -26,12 +26,29 @@
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            /* subtle layered texture – base grain via background image */
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc0IiBudW1PY3RhdmVzPSIzIiAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNmKSIgb3BhY2l0eT0iMC4wMjUiIC8+PC9zdmc+');
+            background-repeat: repeat;
+            background-size: 180px 180px;  /* fine grain tiling */
+            background-attachment: fixed;   /* texture stays during scroll */
+            /* extra hand-drawn sketch layer (very faint lines) */
+            background-image: 
+                url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48cGF0aCBkPSJNMTAwLDIwMCBMMzAwLDIwMCBNMjUwLDE1MCBMMjUwLDM1MCBMMTUwLDE1MCBMMzUwLDM1MCIgc3Ryb2tlPSIjMjIyMjIyIiBzdHJva2Utd2lkdGg9IjAuNSIgZmlsbD0ibm9uZSIgb3BhY2l0eT0iMC4wNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiAvPjwvc3ZnPg=='),
+                url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc0IiBudW1PY3RhdmVzPSIzIiAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNmKSIgb3BhY2l0eT0iMC4wMjUiIC8+PC9zdmc+');
+            background-repeat: repeat, repeat;
+            background-size: 400px 400px, 180px 180px;
+            background-blend-mode: overlay, normal;
+            background-attachment: fixed, fixed;
+            /* fallback base color */
+            background-color: #F2F0E9;
         }
 
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 24px;
+            position: relative; /* ensures content is above texture */
+            z-index: 2;
         }
 
         .btn-outline {
@@ -477,14 +494,14 @@
 
     </div>
 
-    <!-- paper grain overlay -->
+    <!-- paper grain overlay – now integrated into body background, but keep light extra for depth (optional, but we disable to avoid double) 
     <div style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc0IiBudW1PY3RhdmVzPSIzIiAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNmKSIgb3BhY2l0eT0iMC4wMjUiIC8+PC9zdmc+'); opacity:0.2; mix-blend-mode: multiply;"></div>
+    --> <!-- overlay removed to avoid double grain – it's now cleanly in body background -->
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('RANDOM SUNDAYS — featured heading now uses Noto Serif.');
+            console.log('RANDOM SUNDAYS — background texture added (grain + subtle handdrawn lines).');
         });
     </script>
 </body>
-
 </html>
